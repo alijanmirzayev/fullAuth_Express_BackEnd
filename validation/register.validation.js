@@ -8,10 +8,12 @@ export const registerValidation = async (body) => {
                 .max(30),
 
             email: Joi.string()
-                .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+                .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+                .required(),
 
             password: Joi.string()
                 .pattern(new RegExp('^[a-zA-Z0-9əıçşöğ]{3,30}$'))
+                .required()
         })
         const { error, value  } = schema.validate(body);
 
