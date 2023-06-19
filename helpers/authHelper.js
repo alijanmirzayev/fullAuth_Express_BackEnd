@@ -11,6 +11,7 @@ export const BCRYPT = {
         }
     },
     comparePassword: async (password, hashedPassword) => {
-        return compare(password, hashedPassword)
+        const result =  await compare(password, hashedPassword)
+        return result
     }
 }
